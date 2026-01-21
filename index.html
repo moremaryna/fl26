@@ -1,1 +1,703 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meet me at FRUIT LOGISTICA 2026 — Berlin</title>
+  <meta name="description" content="In-person meetings at Fruit Logistica 2026 in Berlin. Live demo: fresh produce quality control, digital inventory systems, and AI in Agriculture learning collaborations." />
+  <meta property="og:title" content="Meet me at FRUIT LOGISTICA 2026 — Berlin" />
+  <meta property="og:description" content="Let’s connect in Berlin: live app demo for QC, inventory, and AI learning collaborations." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#E11D2E" />
+
+  <style>
+    :root{
+      /* Fruit Logistica-inspired palette (fresh, bold accents) */
+      --fl-red: #E11D2E;
+      --fl-red-2:#FF3B30;
+      --fl-green:#2FB344;
+      --fl-yellow:#FFD400;
+      --ink:#0b1220;
+      --muted:#5b667a;
+      --paper:#ffffff;
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --border: rgba(11,18,32,.12);
+      --shadow: 0 12px 30px rgba(11,18,32,.10);
+      --radius: 18px;
+      --radius-lg: 26px;
+      --max: 1100px;
+    }
+
+    *{ box-sizing: border-box; }
+    html,body{ height: 100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color: var(--ink);
+      background: radial-gradient(1200px 700px at 10% 0%, rgba(255,212,0,.20), transparent 60%),
+                  radial-gradient(900px 520px at 90% 10%, rgba(47,179,68,.16), transparent 55%),
+                  radial-gradient(1000px 520px at 50% 110%, rgba(225,29,46,.13), transparent 60%),
+                  var(--bg);
+      line-height: 1.45;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    .wrap{ width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    /* Top bar */
+    .topbar{
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(246,248,251,.75);
+      border-bottom: 1px solid rgba(11,18,32,.08);
+    }
+    .topbar .inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 12px 0;
+      gap: 14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+    .dot{
+      width: 12px; height:12px; border-radius: 999px;
+      background: conic-gradient(from 0deg, var(--fl-red), var(--fl-yellow), var(--fl-green), var(--fl-red));
+      box-shadow: 0 0 0 3px rgba(255,255,255,.8);
+    }
+    .nav{
+      display:flex; gap: 10px; align-items:center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .pill{
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(11,18,32,.10);
+      background: rgba(255,255,255,.7);
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .pill:hover{ transform: translateY(-1px); border-color: rgba(11,18,32,.18); background: rgba(255,255,255,.92); }
+
+    /* Hero */
+    header.hero{
+      padding: 42px 0 22px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    @media (max-width: 920px){
+      .hero-grid{ grid-template-columns: 1fr; }
+    }
+
+    .hero-card{
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,255,255,.75));
+      border: 1px solid rgba(11,18,32,.10);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute; inset:-80px -120px auto auto;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,212,0,.55), transparent 62%),
+                  radial-gradient(circle at 70% 60%, rgba(47,179,68,.40), transparent 66%),
+                  radial-gradient(circle at 40% 80%, rgba(225,29,46,.35), transparent 60%);
+      filter: blur(2px);
+      transform: rotate(18deg);
+      opacity: .9;
+    }
+
+    .kicker{
+      display:flex; gap:10px; align-items:center;
+      font-weight: 800;
+      color: rgba(11,18,32,.72);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 12px;
+    }
+    .kicker span.badge{
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(225,29,46,.10);
+      border: 1px solid rgba(225,29,46,.25);
+      color: var(--fl-red);
+      letter-spacing: .06em;
+    }
+
+    h1{
+      margin: 14px 0 10px;
+      font-size: clamp(30px, 3.6vw, 44px);
+      line-height: 1.05;
+      letter-spacing: -.02em;
+    }
+    .subtitle{
+      font-size: 16px;
+      color: rgba(11,18,32,.78);
+      max-width: 60ch;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap: 10px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-weight: 800;
+      border: 1px solid rgba(11,18,32,.12);
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 8px 18px rgba(11,18,32,.10);
+      transition: transform .12s ease, box-shadow .12s ease;
+      font-size: 15px;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 14px 26px rgba(11,18,32,.14); }
+    .btn.primary{
+      background: linear-gradient(135deg, var(--fl-red), var(--fl-red-2));
+      border-color: rgba(255,255,255,.25);
+      color: white;
+    }
+    .btn.secondary{
+      background: linear-gradient(135deg, rgba(47,179,68,.95), rgba(255,212,0,.85));
+      border-color: rgba(255,255,255,.25);
+      color: rgba(11,18,32,.92);
+    }
+
+    .meta{
+      display:flex; flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+      position: relative;
+      z-index: 2;
+    }
+    .chip{
+      display:flex; align-items:center; gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(11,18,32,.05);
+      border: 1px solid rgba(11,18,32,.08);
+      color: rgba(11,18,32,.72);
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .chip b{ color: rgba(11,18,32,.90); }
+
+    /* Profile card */
+    .profile{
+      display:flex;
+      flex-direction: column;
+      gap: 14px;
+      height: 100%;
+    }
+    .photo-card{
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.85);
+      border: 1px solid rgba(11,18,32,.10);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display:flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .photo{
+      width: 92px; height:92px;
+      border-radius: 22px;
+      overflow:hidden;
+      border: 2px solid rgba(11,18,32,.08);
+      background: linear-gradient(135deg, rgba(255,212,0,.22), rgba(47,179,68,.14), rgba(225,29,46,.12));
+      flex: 0 0 auto;
+      position: relative;
+    }
+    .photo img{
+      width:100%; height:100%; object-fit: cover;
+      display:block;
+    }
+    .photo .placeholder{
+      position:absolute; inset:0;
+      display:flex; align-items:center; justify-content:center;
+      font-weight: 900;
+      color: rgba(11,18,32,.55);
+      font-size: 12px;
+      text-align:center;
+      padding: 10px;
+    }
+
+    .who{
+      display:flex;
+      flex-direction: column;
+      gap: 3px;
+      min-width: 0;
+    }
+    .who .name{ font-weight: 900; font-size: 18px; }
+    .who .role{ color: rgba(11,18,32,.68); font-weight: 700; font-size: 14px; }
+    .who .mini{ color: rgba(11,18,32,.55); font-size: 13px; }
+
+    .social{
+      display:flex; gap: 10px; flex-wrap: wrap;
+      align-items: center;
+    }
+    .social a{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(11,18,32,.12);
+      background: rgba(255,255,255,.92);
+      font-weight: 800;
+      font-size: 14px;
+      transition: transform .12s ease;
+    }
+    .social a:hover{ transform: translateY(-1px); }
+    .icon{
+      width: 18px; height: 18px;
+      display:inline-block;
+    }
+
+    /* Sections */
+    section{
+      padding: 18px 0 26px;
+    }
+    .section-card{
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,.88);
+      border: 1px solid rgba(11,18,32,.10);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    h2{
+      margin:0 0 10px;
+      font-size: 20px;
+      letter-spacing: -.01em;
+    }
+    p{ margin: 0 0 10px; color: rgba(11,18,32,.78); }
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 920px){
+      .grid-2{ grid-template-columns: 1fr; }
+    }
+
+    .expect-list{
+      display:grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .expect{
+      display:flex; gap: 12px;
+      padding: 14px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(11,18,32,.10);
+      background: rgba(246,248,251,.65);
+    }
+    .expect .tag{
+      flex: 0 0 auto;
+      width: 42px; height: 42px;
+      border-radius: 14px;
+      display:flex; align-items:center; justify-content:center;
+      font-weight: 900;
+      border: 1px solid rgba(11,18,32,.10);
+      background: white;
+    }
+    .expect:nth-child(1) .tag{ background: rgba(225,29,46,.10); color: var(--fl-red); border-color: rgba(225,29,46,.25); }
+    .expect:nth-child(2) .tag{ background: rgba(47,179,68,.12); color: var(--fl-green); border-color: rgba(47,179,68,.25); }
+    .expect:nth-child(3) .tag{ background: rgba(255,212,0,.20); color: rgba(11,18,32,.85); border-color: rgba(255,212,0,.35); }
+
+    .expect b{ display:block; margin-bottom: 3px; }
+    .small{ font-size: 13px; color: rgba(11,18,32,.62); }
+
+    /* Map */
+    .map-wrap{
+      border-radius: 18px;
+      overflow:hidden;
+      border: 1px solid rgba(11,18,32,.10);
+      background: rgba(246,248,251,.7);
+      min-height: 360px;
+    }
+    iframe{ width:100%; height: 360px; border:0; display:block; }
+
+    /* QR block */
+.qr-inline{
+  display:flex;
+  gap: 14px;
+  align-items: center;
+  width: 100%;
+}
+.qr-box{
+  width: 150px;
+  height: 150px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(11,18,32,.10);
+  background: linear-gradient(135deg, rgba(255,212,0,.14), rgba(47,179,68,.10), rgba(225,29,46,.10));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex: 0 0 auto;
+  box-shadow: 0 10px 18px rgba(11,18,32,.10);
+}
+.qr-box img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+}
+.qr-text{
+  display:flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.qr-text b{
+  margin: 0;
+}
+.qr-hint{
+  font-size: 12.5px;
+  color: rgba(11,18,32,.62);
+}
+.qr-mini{
+  display:flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+.qr-mini span{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(11,18,32,.10);
+  background: rgba(255,255,255,.85);
+  font-weight: 700;
+  font-size: 12px;
+  color: rgba(11,18,32,.72);
+}
+@media (max-width: 520px){
+  .qr-inline{
+    align-items:flex-start;
+  }
+  .qr-box{
+    width: 150px;
+    height: 150px;
+    border-radius: 16px;
+  }
+}
+
+    /* Footer */
+    footer{
+      padding: 18px 0 34px;
+      color: rgba(11,18,32,.56);
+      font-size: 13px;
+    }
+    .fine{
+      display:flex; justify-content:space-between; gap: 12px; flex-wrap: wrap;
+      border-top: 1px solid rgba(11,18,32,.08);
+      padding-top: 14px;
+    }
+    .highlight{
+      font-weight: 900;
+      background: linear-gradient(90deg, var(--fl-red), var(--fl-yellow), var(--fl-green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sticky top navigation -->
+  <div class="topbar">
+    <div class="wrap inner">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Fruit Logistica 2026 · Maryna Kuzmenko</span>
+      </div>
+      <nav class="nav" aria-label="Page navigation">
+        <a class="pill" href="#expect">What to expect</a>
+        <a class="pill" href="#map">Meeting map</a>
+        <a class="pill" href="#connect">Connect earlier</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-card">
+        <div class="kicker">
+          <span class="badge">Berlin</span>
+          <span>FRUIT LOGISTICA 2026</span>
+        </div>
+
+        <h1>Let’s meet in person — and make it <span class="highlight">fruitful</span> 🍏🤝</h1>
+        <p class="subtitle">
+         I’m attending Fruit Logistica in Berlin 😊. I won’t have a booth this time — but I’d still love to meet! Let’s catch up at Infocounter 19 (near the North Entrance).
+         
+         I’ll be there every day with our new mobile app for a quick live demo — and I’d genuinely love to hear what you’re looking for.
+        </p>
+
+        <div class="hero-actions">
+          <!-- Replace # with your preferred scheduling link -->
+          <a class="btn primary" href="#connect">Book a meeting slot</a>
+          <!-- Optional: link to a short demo video on YouTube -->
+          <a class="btn secondary" href="#expect">See what we’ll cover</a>
+        </div>
+
+        <div class="meta" aria-label="Event details">
+          <div class="chip">📅 <b>4–6 Feb 2026</b> · 12:30–13:00</div>
+          <div class="chip">📍 <b>Messe Berlin</b> · Infocounter 19</div>
+          <div class="chip">⏱️ <b>30 min</b> meeting</div>
+        </div>
+      </div>
+
+      <!-- Profile + Social -->
+      <div class="profile">
+        <div class="photo-card">
+          <div class="photo" aria-label="Dr Maryna Kuzmenko">
+            <!-- ✅ Replace this placeholder with your real photo file path or URL -->
+           <img src="https://media.licdn.com/dms/image/v2/C4D03AQHSPal7JXUpgA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1601931067692?e=2147483647&v=beta&t=Kxpfu3Fz-417E-xmQzK7iu72C8fdSObjD1bLtdRaomg" alt="Dr. Maryna Kuzmenko" />
+          </div>
+
+          <div class="who">
+            <div class="name">Dr. Maryna Kuzmenko</div>
+            <div class="role">AgriTech · AI in Agriculture · QC in Fresh Produce</div>
+            <div class="mini">In-person meeting · Live demo · Collaboration</div>
+          </div>
+        </div>
+
+        <div class="photo-card">
+          <div style="display:flex; flex-direction:column; gap:10px; width:100%;">
+            <div style="font-weight:900; font-size:16px;">Find me online</div>
+            <div class="social">
+              <!-- ✅ Replace the href links with your real profiles -->
+              <a href="https://www.linkedin.com/in/kuzmenkomaryna/" target="_blank" rel="noopener">
+                <!-- LinkedIn icon (SVG) -->
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#0A66C2" d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5ZM.5 23.5h4V7.98h-4V23.5ZM8 7.98h3.83v2.12h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.09v9.37h-4v-8.3c0-1.98-.03-4.53-2.76-4.53-2.76 0-3.18 2.16-3.18 4.39v8.44H8V7.98Z"/>
+                </svg>
+                LinkedIn
+              </a>
+
+              <a href="https://www.youtube.com/@drmarynakuzmenko" target="_blank" rel="noopener">
+                <!-- YouTube icon (SVG) -->
+                <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="#FF0000" d="M23.5 6.2s-.23-1.63-.95-2.35c-.9-.95-1.9-.95-2.36-1.01C16.9 2.5 12 2.5 12 2.5h-.01s-4.9 0-8.18.34c-.46.06-1.46.06-2.36 1.01C.73 4.57.5 6.2.5 6.2S.2 8.12.2 10.04v1.8c0 1.92.3 3.84.3 3.84s.23 1.63.95 2.35c.9.95 2.08.92 2.6 1.02 1.88.18 7.95.33 7.95.33s4.9-.01 8.18-.35c.46-.06 1.46-.06 2.36-1.01.72-.72.95-2.35.95-2.35s.3-1.92.3-3.84v-1.8c0-1.92-.3-3.84-.3-3.84ZM9.75 14.2V7.8l6.2 3.2-6.2 3.2Z"/>
+                </svg>
+                YouTube
+              </a>
+            </div>
+
+            <div class="small">
+              Do you have an idea for collab? Let's do it! 😉
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- What to expect -->
+  <section id="expect">
+    <div class="wrap">
+      <div class="section-card">
+        <h2>What to expect in our meeting</h2>
+        <p>
+          A short, practical conversation + a <b>live demo</b>. No buzzwords — just workflows that help fresh produce teams move faster,
+          capture evidence, and scale operations.
+        </p>
+
+        <div class="expect-list">
+          <div class="expect">
+            <div class="tag">QC</div>
+            <div>
+              <b>Quality control of fresh produce</b>
+              <div class="small">
+                Inspections · Defects & grading · Photo evidence · Standardised checks · Clear decisions (✅ / ⚠️ / ❌)
+              </div>
+            </div>
+          </div>
+
+          <div class="expect">
+            <div class="tag">INV</div>
+            <div>
+              <b>Digital inventory management systems</b>
+              <div class="small">
+                Lots & batches · Traceability · Simple records · Audit-ready history · Fast on mobile, clean on desktop
+              </div>
+            </div>
+          </div>
+
+          <div class="expect">
+            <div class="tag">AI</div>
+            <div>
+              <b>AI in Agriculture learning collaborations</b>
+              <div class="small">
+                Training partnerships · On-line lectures · Student challenges · Workshops · Industry–academia collaboration
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px" class="small">
+          ✔ Ideal for: packhouses · exporters · importers · retailers · QC teams · tech partners · researchers · innovation leads · anyone who loves AI in Agriculture💚
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map + meeting point -->
+  <section id="map">
+    <div class="wrap">
+      <div class="section-card">
+        <div class="grid-2">
+          <div>
+            <h2>Meeting map</h2>
+            <p>
+              Fruit Logistica takes place at <b>Berlin Exhibition Grounds (Messe Berlin)</b>.
+              I’ll be around the event all three days, but for this particular meet-up, let’s use Infocounter 19 as our meeting point (between Hall 18 and Hall 20).
+            </p>
+
+            <div class="expect" style="margin-top:12px">
+              <div class="tag">📍</div>
+              <div>
+                <b>Messe Berlin</b>
+                <div class="small">
+                  Messedamm 22, 14055 Berlin · GPS 52.50133°N / 13.27431°E
+                </div>
+                <div class="small" style="margin-top:6px">
+                  <b>Meeting spot idea:</b> North Entrance (Nordeingang) / Infocounter 19<br/>
+                  <span style="opacity:.75">There will also be a Meet&Eat area, a Photo area, and plenty of other interesting zones — we definitely won’t get bored 😊</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-wrap" aria-label="Map of Messe Berlin">
+            <!-- OpenStreetMap embed (no API key needed) -->
+            <iframe
+              title="Map of Messe Berlin"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=13.2617%2C52.4955%2C13.2869%2C52.5077&amp;layer=mapnik&amp;marker=52.50133%2C13.27431">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connect earlier -->
+  <section id="connect">
+    <div class="wrap">
+      <div class="section-card">
+        <h2>How to connect earlier</h2>
+        <p>
+          If you’d like to schedule a meeting in advance, send a quick message with your preferred day/time + your focus area
+          (QC / inventory / AI learning collaboration).
+        </p>
+
+        <div class="grid-2" style="margin-top: 12px;">
+          <div class="expect">
+            <div class="tag">📩</div>
+            <div>
+              <b>Email</b>
+              <div class="small"><span style="font-weight:800;">support@petioleapp.com</span></div>
+              <div class="small" style="margin-top:6px;">
+                Subject idea: <b>Fruit Logistica meeting — live demo</b>
+              </div>
+            </div>
+          </div>
+
+          <div class="expect">
+            <div class="tag">🗓️</div>
+            <div>
+              <b>Save the meet-up</b>
+              <div class="small"><a href="https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=N2FwdWZyc3YwdjJzcjE1bmFuYzhhcmtuMzBfMjAyNjAyMDRUMTEzMDAwWiBtYXJ5bmFAcGV0aW9sZWFwcC5jb20&tmsrc=maryna%40petioleapp.com&scp=ALL">Add to Google Calendar</a></div>
+              </div>
+          </div>
+
+          <div class="expect">
+  <div class="tag">💬</div>
+  <div style="width:100%;">
+    <b>Fruit Logistica Event App</b>
+
+    <div class="qr-inline" style="margin-top:8px;">
+      <div class="qr-box" aria-label="QR code">
+        <!-- ✅ Replace qr-fl-app.png with your actual QR image file -->
+        <img src="fl26-qr.png" alt="Scan to message me in the Fruit Logistica App" />
+      </div>
+
+      <div class="qr-text">
+        <div class="small">
+          Scan the code in the event app to message me directly — quick and easy 📲
+        </div>
+
+        <div class="qr-mini">
+          <span>✅ 2 seconds</span>
+          <span>📍 Meet-up friendly</span>
+          <span>🤝 DM me instantly</span>
+        </div>
+
+        <div class="qr-hint">
+          Tip: Open the Fruit Logistica app → Scan / QR → point your camera at the code.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div class="expect">
+            <div class="tag">🤝</div>
+            <div>
+              <b>Bring your use-case </b>
+              <div class="small">
+                No use-case is too small - a sample product photo / lot spec / QC checklist is perfect — we can discuss the workflow in minutes.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-actions" style="margin-top:16px;">
+          <a class="btn primary" href="mailto:support@petioleapp.com?subject=Fruit%20Logistica%20meeting%20%E2%80%94%20live%20demo">
+            Email me now
+          </a>
+          <a class="btn" href="#map">Open meeting map</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap fine">
+      <div>
+        Built for Fruit Logistica 2026 · Berlin · <span class="highlight">Let’s grow.</span>
+      </div>
+      <div>
+        © <span id="year"></span> · Maryna Kuzmenko · Powered by fruits + practical AI 🍌
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
